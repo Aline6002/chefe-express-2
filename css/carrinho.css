@@ -1,0 +1,324 @@
+/* =================== VARIÁVEIS E BASE =================== */
+:root {
+    --vermelho: #d43f3f;
+    --texto-claro: #ffffff;
+    --bg-site: #fffaf0;
+    --cinza-escuro: #333;
+    --cinza-borda: #eee;
+    --sombra: rgba(0, 0, 0, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+body {
+    background-color: var(--bg-site);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* =================== CABEÇALHO E RODAPÉ (MANTIDOS) =================== */
+header {
+    background-color: var(--vermelho);
+    color: var(--texto-claro);
+    padding: 0; /* Zero padding */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+footer {
+    background-color: var(--vermelho);
+    color: var(--texto-claro);
+    padding: 4px 0; /* Rodapé ultra fino */
+    margin-top: auto;
+    text-align: center;
+    font-size: 0.7rem;
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 15px;
+    height: 35px; /* Altura mínima para o texto */
+}
+
+.logo-txt {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1rem; /* Fonte menor */
+    font-weight: bold;
+}
+
+.logo-icon {
+    width: 60px; /* Logo menor para não forçar o header */
+    height: 60px;
+    margin: -5px 0; 
+    object-fit: contain;
+}
+
+.btn-voltar {
+    color: white;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 0.7rem;
+}
+
+/* =================== LAYOUT E GRID =================== */
+.interface {
+    max-width: 1000px;
+    margin: 20px auto; 
+    padding: 0 15px;
+    width: 100%;
+}
+
+.carrinho-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 20px;
+}
+
+/* =================== ITENS DO CARRINHO =================== */
+.item-pedido {
+    background: #ffffff;
+    border-radius: 6px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--cinza-borda);
+}
+
+.info-item strong {
+    font-size: 1rem;
+    color: var(--cinza-escuro);
+}
+
+.form-select-sm {
+    padding: 2px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 11px;
+    color: #777;
+    background: #fafafa;
+}
+
+.preco-subtotal {
+    color: #000;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.btn-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin: 5px 0;
+}
+
+.btn-group button {
+    border: none;
+    background: #f5f5f5;
+    color: #333;
+    padding: 2px 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.btn-group span {
+    padding: 0 8px;
+    font-size: 0.85rem;
+}
+
+.btn-remover {
+    background: none;
+    border: none;
+    color: #ccc;
+    cursor: pointer;
+    font-size: 0.7rem;
+    text-transform: lowercase;
+}
+
+/* =================== RESUMO, ENDEREÇO E PAGAMENTO =================== */
+.card-resumo {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--cinza-borda);
+    position: sticky;
+    top: 55px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.card-resumo h2.titulo-sessao {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #999;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #f9f9f9;
+    padding-bottom: 5px;
+}
+
+.total-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 20px;
+    padding: 10px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.total-box span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #666;
+    text-transform: uppercase;
+}
+
+#total-carrinho {
+    font-size: 1.8rem;
+    color: #000;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+/* Campos de Input e Label */
+.campo-endereco, .campo-pagamento, .campo-troco, .campo-obs {
+    margin-top: 15px;
+}
+
+.campo-endereco label, .campo-pagamento label, .campo-troco label, .campo-obs label {
+    display: block;
+    font-weight: 700;
+    font-size: 0.75rem;
+    color: #444;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.campo-endereco textarea, .campo-obs textarea, #troco {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    color: #333;
+    background-color: #fafafa;
+    transition: border-color 0.2s;
+    line-height: 1.4;
+    resize: none;
+}
+
+.campo-endereco textarea { height: 70px; }
+.campo-obs textarea { height: 50px; }
+
+.campo-endereco textarea:focus, .campo-obs textarea:focus, #troco:focus {
+    outline: none;
+    border-color: var(--vermelho);
+    background-color: #fff;
+}
+
+/* Grid de Pagamento (Múltiplo) */
+.opcoes-pagamento {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.check-container {
+    background: #fafafa;
+    border: 1px solid #e0e0e0;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #444;
+}
+
+.check-container input {
+    accent-color: var(--vermelho);
+}
+
+/* Botões */
+.btn-finalizar {
+    width: 100%;
+    background-color: var(--vermelho);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-top: 15px;
+}
+
+.btn-esvaziar {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    color: #ddd;
+    background: none;
+    border: none;
+    font-size: 0.7rem;
+    cursor: pointer;
+}
+
+/* Estilo do Botão de Alternância */
+.btn-theme {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid white;
+  color: white;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  transition: all 0.3s;
+  margin-left: 10px;
+}
+
+.btn-theme:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Variáveis para o Modo Escuro Manual */
+body.dark-mode {
+  --bg-color: #0d0d0d;
+  --card-bg: #1e1e1e;
+  --card-border: #333;
+  --text-color: #f0f0f0;
+  --input-bg: #2a2a2a;
+  --shadow: rgba(0, 0, 0, 0.4);
+}
+
+/* Ajuste sutil para imagens no modo escuro */
+body.dark-mode .item img {
+  opacity: 0.8;
+}
+
+/* Responsividade */
+@media (max-width: 850px) {
+    .carrinho-grid { grid-template-columns: 1fr; }
+    .item-pedido { padding: 10px; }
+    .opcoes-pagamento { grid-template-columns: 1fr 1fr; }
+}
