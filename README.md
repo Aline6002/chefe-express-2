@@ -1,2 +1,2 @@
 # chefe-express-2
-com pagamento direto no site
+com pagamento direcionado ao whatsapp
